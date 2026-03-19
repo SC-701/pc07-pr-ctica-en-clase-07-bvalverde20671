@@ -1,0 +1,9 @@
+﻿CREATE PROCEDURE EliminarProducto
+    @Id UNIQUEIDENTIFIER
+AS
+BEGIN
+    DELETE FROM Producto
+    WHERE Id = @Id
+
+    SELECT @Id
+END

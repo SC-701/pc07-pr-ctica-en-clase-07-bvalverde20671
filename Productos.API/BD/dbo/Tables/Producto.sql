@@ -1,0 +1,10 @@
+﻿CREATE TABLE [dbo].[Producto] (
+    [Id]             UNIQUEIDENTIFIER NOT NULL,
+    [IdSubCategoria] UNIQUEIDENTIFIER NOT NULL,
+    [Nombre]         VARCHAR (MAX)    NOT NULL,
+    [Descripcion]    VARCHAR (MAX)    NOT NULL,
+    [Precio]         DECIMAL (18)     NOT NULL,
+    [Stock]          INT              NOT NULL,
+    [CodigoBarras]   VARCHAR (MAX)    NOT NULL
+);
+
