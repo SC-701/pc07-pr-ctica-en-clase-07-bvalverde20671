@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Abstracciones.Interfaces.Reglas
+﻿namespace Abstracciones.Interfaces.Reglas
 {
-    internal class IProductoReglas
+    public interface IProductoReglas
     {
+        Task<decimal> CalcularPrecioUSD(decimal precioCRC);
     }
 }

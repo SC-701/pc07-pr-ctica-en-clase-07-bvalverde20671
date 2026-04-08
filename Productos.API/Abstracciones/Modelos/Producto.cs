@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Abstracciones.Modelos
+﻿namespace Abstracciones.Modelos
 {
     public class ProductoBase
     {
@@ -26,5 +20,9 @@ namespace Abstracciones.Modelos
         public string SubCategoria { get; set; }
         public string Categoria { get; set; }
     }
-}
 
+    public class ProductoDetalle : ProductoResponse
+    {
+        public decimal PrecioUSD { get; set; }
+    }
+}

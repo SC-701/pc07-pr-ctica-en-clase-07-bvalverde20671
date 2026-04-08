@@ -6,14 +6,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.4" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+		<ProjectReference Include="..\Abstracciones\Abstracciones.csproj" />
+		<ProjectReference Include="..\DA\DA.csproj" />
+		<ProjectReference Include="..\Flujo\Flujo.csproj" />
+		<ProjectReference Include="..\Reglas\Reglas.csproj" />
+		<ProjectReference Include="..\Servicios\Servicios.csproj" />
 
-  <ItemGroup>
-    <ProjectReference Include="..\Abstracciones\Abstracciones.csproj" />
-    <ProjectReference Include="..\DA\DA.csproj" />
-    <ProjectReference Include="..\Flujo\Flujo.csproj" />
-  </ItemGroup>
+	</ItemGroup>
 
 </Project>

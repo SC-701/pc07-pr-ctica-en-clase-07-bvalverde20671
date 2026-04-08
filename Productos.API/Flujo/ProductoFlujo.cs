@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abstracciones.Interfaces.DA;
+﻿using Abstracciones.Interfaces.DA;
 using Abstracciones.Interfaces.Flujo;
+using Abstracciones.Interfaces.Reglas;
 using Abstracciones.Modelos;
 
 namespace Flujo
@@ -12,10 +8,12 @@ namespace Flujo
     public class ProductoFlujo : IProductoFlujo
     {
         private readonly IProductoDA _productoDA;
+        private readonly IProductoReglas _productoReglas;
 
-        public ProductoFlujo(IProductoDA productoDA)
+        public ProductoFlujo(IProductoDA productoDA, IProductoReglas productoReglas)
         {
             _productoDA = productoDA;
+            _productoReglas = productoReglas;
         }
 
         public Task<Guid> Agregar(ProductoRequest producto)
@@ -38,9 +36,18 @@ namespace Flujo
             return _productoDA.Obtener();
         }
 
-        public Task<ProductoResponse> Obtener(Guid Id)
+        public async Task<ProductoDetalle> Obtener(Guid Id)
         {
-            return _productoDA.Obtener(Id);
+            var producto = await _productoDA.Obtener(Id);
+
+            if (producto == null)
+            {
+                return null;
+            }
+
+            producto.PrecioUSD = await _productoReglas.CalcularPrecioUSD(producto.Precio);
+
+            return producto;
         }
     }
 }
